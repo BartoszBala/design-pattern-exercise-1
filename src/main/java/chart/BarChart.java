@@ -20,6 +20,8 @@ public class BarChart {
     private boolean displayLegend;
 
 
+
+
     public BarChart(String title, String fontName, int fontSize, String fontColor, int width, int height, String backgroundColor, List<String> data, boolean displayTitle, boolean displayLegend) {
         this.title = title;
         this.fontName = fontName;
@@ -33,6 +35,10 @@ public class BarChart {
         this.displayLegend = displayLegend;
     }
 
+
+
+
+
     public BarChart(String title, List<String> data) {
         this.title = title;
         this.data = data;
@@ -44,6 +50,119 @@ public class BarChart {
         this.fontName = "Arial";
         this.fontColor = "Black";
         this.fontSize = 12;
+    }
+
+    public BarChart() {
+
+    }
+
+    public static BarCharBuilder builder (){
+        return new BarCharBuilder();
+    }
+
+
+    public static class BarCharBuilder
+
+
+    {
+
+        private String title;
+
+        private String fontName;
+        private int fontSize;
+        private String fontColor;
+
+        private int width;
+        private int height;
+        private String backgroundColor;
+
+        private List<String> data;
+
+        private boolean displayTitle;
+        private boolean displayLegend;
+
+        public BarCharBuilder withTitle(String title) {this.title=title;
+            return this;
+        }
+
+        public BarCharBuilder withFontName(String fontName)
+        {this.fontName=fontName;
+            return this;
+        }
+
+        public BarCharBuilder withFontSize(int fontSize)
+        {
+            this.fontSize=fontSize;
+            return this;
+        }
+
+        public BarCharBuilder withFontColor(String fontColor)
+        {this.fontColor=fontColor;
+            return this;}
+
+        public BarCharBuilder withWiddth(int width)
+        {this.width=width;
+            return this;}
+
+        public BarCharBuilder withHeight(int height)
+        {this.height=height;
+            return this;
+
+        }
+
+        public BarCharBuilder withBackgroundColor(String backgroundColor)
+        {this.backgroundColor=backgroundColor;
+            return this;
+
+
+        }
+
+        public BarCharBuilder withListOfData(List<String> data)
+
+        {
+            this.data=data;
+            return this;
+        }
+
+        public BarCharBuilder withDisplayTitle(boolean displayTitle)
+        {this.displayTitle=displayTitle;
+            return this;}
+
+        public BarCharBuilder withDisplayLegend(boolean displayLegend)
+        {this.displayLegend=displayLegend;
+            return this;}
+
+
+        public BarChart build()
+
+        {BarChart barChart = new BarChart();
+
+            barChart.backgroundColor=this.backgroundColor;
+            barChart.data=this.data;
+            barChart.displayLegend=this.displayLegend;
+            barChart.displayTitle=this.displayTitle;
+            barChart.fontColor=this.fontColor;
+            barChart.fontName=this.fontName;
+            barChart.fontSize=this.fontSize;
+            barChart.height=this.height;
+            barChart.title=this.title;
+            barChart.width=this.width;
+
+
+            return barChart;
+
+        }
+
+
+
+
+
+
+
+
+
+
+
     }
 
     public String getTitle() {
@@ -124,5 +243,21 @@ public class BarChart {
 
     public void setDisplayLegend(boolean displayLegend) {
         this.displayLegend = displayLegend;
+    }
+
+    @Override
+    public String toString() {
+        return "BarChart{" +
+                "title='" + title + '\'' +
+                ", fontName='" + fontName + '\'' +
+                ", fontSize=" + fontSize +
+                ", fontColor='" + fontColor + '\'' +
+                ", width=" + width +
+                ", height=" + height +
+                ", backgroundColor='" + backgroundColor + '\'' +
+                ", data=" + data +
+                ", displayTitle=" + displayTitle +
+                ", displayLegend=" + displayLegend +
+                '}';
     }
 }
